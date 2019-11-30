@@ -1,0 +1,103 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "autor",
+    "codigo",
+    "nombre",
+    "serie",
+    "unidad_medida",
+    "version"
+  ],
+  "properties": {
+    "autor": {
+      "$id": "#/properties/autor",
+      "type": "string",
+      "title": "The Autor Schema",
+      "default": "",
+      "examples": [
+        "mindicador.cl"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "codigo": {
+      "$id": "#/properties/codigo",
+      "type": "string",
+      "title": "The Codigo Schema",
+      "default": "",
+      "examples": [
+        "dolar"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "nombre": {
+      "$id": "#/properties/nombre",
+      "type": "string",
+      "title": "The Nombre Schema",
+      "default": "",
+      "examples": [
+        "Dólar observado"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "serie": {
+      "$id": "#/properties/serie",
+      "type": "array",
+      "title": "The Serie Schema",
+      "items": {
+        "$id": "#/properties/serie/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "fecha",
+          "valor"
+        ],
+        "properties": {
+          "fecha": {
+            "$id": "#/properties/serie/items/properties/fecha",
+            "type": "string",
+            "title": "The Fecha Schema",
+            "default": "",
+            "format": "date",
+            "examples": [
+              "2019-01-02T03:00:00.000Z"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "valor": {
+            "$id": "#/properties/serie/items/properties/valor",
+            "type": "number",
+            "title": "The Valor Schema",
+            "default": 0.0,
+            "examples": [
+              694.77
+            ]
+          }
+        }
+      }
+    },
+    "unidad_medida": {
+      "$id": "#/properties/unidad_medida",
+      "type": "string",
+      "title": "The Unidad_medida Schema",
+      "default": "",
+      "examples": [
+        "Pesos"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "version": {
+      "$id": "#/properties/version",
+      "type": "string",
+      "title": "The Version Schema",
+      "default": "",
+      "examples": [
+        "1.6.0"
+      ],
+      "pattern": "^(.*)$"
+    }
+  }
+}
