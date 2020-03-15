@@ -21,19 +21,23 @@ import static org.springframework.format.annotation.DateTimeFormat.ISO.DATE;
 @Slf4j
 public class SerieController {
 
-  private final IndicadorService service;
+    private final IndicadorService service;
 
-  public SerieController(IndicadorService service) {
-    this.service = service;
-  }
+    public SerieController(IndicadorService service) {
+        this.service = service;
+    }
 
-  @Operation(summary = "Obtiene la serie para un dia especifico")
-  @GetMapping
-  public IndicadorDTO getSerie(
-      @Parameter(description = "Indicador a consultar") @PathVariable("indicator") String indicator,
-      @DateTimeFormat(iso = DATE) @Parameter(description = "Dia a consultar") @RequestParam("dia")
-          LocalDate date) {
-    log.info("Consultando serie de indicador [{}] para el dia [{}]", indicator, date);
-    return service.getSerieByDay(indicator, date);
-  }
+    @Operation(summary = "Obtiene la serie para un dia especifico")
+    @GetMapping
+    public IndicadorDTO getSerie(
+            @Parameter(description = "Indicador a consultar") @PathVariable("indicator") String indicator,
+            @DateTimeFormat(iso = DATE) @Parameter(description = "Dia a consultar") @RequestParam(value = "dia", required = false)
+                    LocalDate date) {
+        if (null == date) {
+            log.warn("Usando fecha actual por defecto para serie de indicador [{}]", indicator);
+            date = LocalDate.now();
+        }
+        log.info("Consultando serie de indicador [{}] para el dia [{}]", indicator, date);
+        return service.getSerieByDay(indicator, date);
+    }
 }
