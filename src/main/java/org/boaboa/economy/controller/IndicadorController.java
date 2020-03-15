@@ -26,11 +26,8 @@ public class IndicadorController {
     this.service = service;
   }
 
-  @Operation(
-      description = "Lista los indicadores disponibles",
-      responses = {
-        @ApiResponse(responseCode = "200", description = "Indicadores consultados exitosamente")
-      })
+  @Operation(description = "Lista los indicadores disponibles")
+  @ApiResponse(responseCode = "200", description = "Indicadores consultados exitosamente")
   @GetMapping
   public List<String> getavailableIndicators() {
     log.info("Consultando indicadores disponibles");
