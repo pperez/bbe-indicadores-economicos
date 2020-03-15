@@ -11,16 +11,12 @@ import org.springframework.context.annotation.Configuration;
 public class SwaggerConfiguration {
 
   @Bean
-  public OpenAPI springShopOpenAPI(BuildProperties buildProperties) {
+  public OpenAPI openAPI(BuildProperties buildProperties) {
     return new OpenAPI()
         .info(
             new Info()
                 .title(buildProperties.getName())
                 .description("Data source indicadores economicos")
-                .version(buildProperties.getVersion()))
-        .externalDocs(
-            new ExternalDocumentation()
-                .description("SpringShop Wiki Documentation")
-                .url("https://springshop.wiki.github.org/docs"));
+                .version(buildProperties.getVersion()));
   }
 }
