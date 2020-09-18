@@ -19,7 +19,7 @@
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <jsonschema2pojo-maven-plugin.version>1.0.2</jsonschema2pojo-maven-plugin.version>
         <jib-maven-plugin.version>2.1.0</jib-maven-plugin.version>
-        <springdoc-openapi.version>1.4.3</springdoc-openapi.version>
+        <springdoc-openapi.version>1.4.4</springdoc-openapi.version>
     </properties>
 
     <dependencies>
